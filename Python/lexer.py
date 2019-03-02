@@ -52,6 +52,7 @@ class Lexer:
             else:
                 return 'ERROR'
         else:
+            self.file.close()
             return 'EOF'
 
     def get_value(self):

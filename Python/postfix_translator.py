@@ -37,9 +37,12 @@ def main():
     if len(errors) > 0:
         print(errors, end='')
     else:
-        print(translation)
-        print('Symbol Table')
+        file = open(outputFile, 'w')
+        file.write(translation)
+        file.write('Symbol Table\n')
         for key in symbol_table:
-            print(key, ': first appeared on line', symbol_table[key])
+            file.write(key + ' : first appeared on line ' + str(symbol_table[key]) + '\n')
+
+    file.close()
 
 main()

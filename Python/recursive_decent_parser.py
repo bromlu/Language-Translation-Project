@@ -18,7 +18,7 @@ class Recursive_Decent_Parser:
         if not self.match('EOF'):
             self.parse_list()
         else:
-            self.translation += 'eof'
+            self.translation += 'eof\n'
 
     def parse_expression(self):
         self.parse_term()
