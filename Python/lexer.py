@@ -34,10 +34,14 @@ class Lexer:
                 self.value = token
                 token = self.file.read(1)
                 self.characterNumber += 1
-                while token.isdigit():
+                while token.isdigit() or token == '.':
                     self.value += token
                     token = self.file.read(1)
                     self.characterNumber += 1
+                try:
+                    float(self.value)
+                except:
+                    return 'INVALID NUMBER'
                 self.characterNumber -= 1
                 self.file.seek(self.file.tell() - 1)
                 return 'NUMBER'
