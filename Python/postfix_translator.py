@@ -1,5 +1,6 @@
 import sys
 from lexer import Lexer
+from recursive_decent_parser import Recursive_Decent_Parser
 from pathlib import Path
 
 def print_usage():
@@ -26,11 +27,8 @@ def main():
         exit(1)
 
     lexer = Lexer(inputFile)
+    recursive_decent_parser = Recursive_Decent_Parser(lexer)
 
-    token = lexer.next()
-    while(token != 'ERROR' and token != 'EOF'):
-        print(token, lexer.getValue())
-        token = lexer.next()
-    print(token)
+    recursive_decent_parser.parse()
 
 main()
