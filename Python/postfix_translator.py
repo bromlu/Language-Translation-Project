@@ -30,9 +30,16 @@ def main():
 
     recursive_decent_parser.parse()
 
+    errors = recursive_decent_parser.get_errors()
+    translation = recursive_decent_parser.get_translation()
     symbol_table = recursive_decent_parser.get_symbol_table()
-    print('Symbol Table')
-    for key in symbol_table:
-        print(key, ': first appeared on line', symbol_table[key])
+
+    if len(errors) > 0:
+        print(errors, end='')
+    else:
+        print(translation)
+        print('Symbol Table')
+        for key in symbol_table:
+            print(key, ': first appeared on line', symbol_table[key])
 
 main()
