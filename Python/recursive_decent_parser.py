@@ -2,6 +2,7 @@ class Recursive_Decent_Parser:
     def __init__(self, lexer):
         self.lexer = lexer
         self.look_ahead = self.lexer.next()
+        self.symbol_table = {}
     
     def parse(self):
         self.parse_list()
@@ -31,8 +32,10 @@ class Recursive_Decent_Parser:
             self.parse_expression()
             if not self.match(')'):
                 self.error(')')
-        elif self.match('STRING'):
-            pass
+        elif self.look_ahead == 'STRING':
+            if self.lexer.get_value() not in self.symbol_table.keys():
+                self.symbol_table[self.lexer.get_value()] =  self.lexer.get_line_number()
+            self.match('STRING')
         elif self.match('NUMBER'):
             pass 
         else:
@@ -56,11 +59,11 @@ class Recursive_Decent_Parser:
             self.look_ahead = self.lexer.next()
 
     def print_error(self, expected):
-        print('Error (' + str(self.lexer.getLineNumber()) + ' , ' + str(self.lexer.getCharacterNumber()) + '): Expected ' 
-        + expected + ' got ' + self.lexer.getValue())
+        print('Error (' + str(self.lexer.get_line_number()) + ' , ' + str(self.lexer.get_character_number()) + '): Expected ' 
+        + expected + ' got ' + self.lexer.get_value())
 
-    def getAbstractDataTree(self):
+    def get_abstract_data_tree(self):
         pass
 
-    def getSymbolTable(self):
-        pass
+    def get_symbol_table(self):
+        return self.symbol_table

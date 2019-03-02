@@ -50,11 +50,11 @@ class Lexer:
         else:
             return 'EOF'
 
-    def getValue(self):
+    def get_value(self):
         return self.value
 
-    def getLineNumber(self):
+    def get_line_number(self):
         return self.lineNumber
 
-    def getCharacterNumber(self):
+    def get_character_number(self):
         return self.characterNumber

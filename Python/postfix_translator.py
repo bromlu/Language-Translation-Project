@@ -8,7 +8,6 @@ def print_usage():
             First argument is the input file to be translated.
             Second argument is the output file the translation os stored in.''')
 
-
 def main():
     if '-h' in sys.argv:
        print_usage()
@@ -30,5 +29,10 @@ def main():
     recursive_decent_parser = Recursive_Decent_Parser(lexer)
 
     recursive_decent_parser.parse()
+
+    symbol_table = recursive_decent_parser.get_symbol_table()
+    print('Symbol Table')
+    for key in symbol_table:
+        print(key, ': first appeared on line', symbol_table[key])
 
 main()
