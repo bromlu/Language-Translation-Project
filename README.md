@@ -5,7 +5,8 @@ Translate math equations from infix to postfix by various different methods
 
 ```math
 2 + 43 * AB;  4 + f;
-8 * 5 + ty6 / (7 MOD3); EOF
+8 * 5 + ty6 / (7 MOD
+3); EOF
 ```
 
 ## Example Output
