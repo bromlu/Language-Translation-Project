@@ -16,7 +16,10 @@ Translate math equations from infix to postfix by various different methods
 4 f + ;
 8 5 * ty6 7 3 MOD / + ;
 eof
-Symbol Table: ty6, AB, f
+Symbol Table
+AB : first appeared on line 1
+f : first appeared on line 1
+ty6 : first appeared on line 2
 ```
 
 ## Method 1: Python Lexer and Recursive Decent Parser
