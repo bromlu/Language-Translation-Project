@@ -22,10 +22,20 @@ f : first appeared on line 1
 ty6 : first appeared on line 2
 ```
 
+The program will also output a abstract data tree into a pdf file.
+
 ## Method 1: Python Lexer and Recursive Decent Parser
 
 ### Run
 
 ```bash
 python3 postfix_translator.py input.txt output.txt
+```
+
+### Dependency
+
+You need to download graphviz for this program to run. Installation is quite simple with pip!
+
+```bash
+pip install graphviz
 ```
