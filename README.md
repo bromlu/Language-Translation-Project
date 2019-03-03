@@ -39,3 +39,13 @@ You need to download graphviz for this program to run. Installation is quite sim
 ```bash
 pip install graphviz
 ```
+
+## Method 2: Antlr grammar with embeded actions
+
+### Run
+
+TODO
+
+### Dependency
+
+You will need to download the antlr runtime in order to run this project. Here is a link to their website [https://www.antlr.org/](Antlr).
