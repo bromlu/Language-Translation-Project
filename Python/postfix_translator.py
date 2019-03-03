@@ -33,6 +33,7 @@ def main():
     errors = recursive_decent_parser.get_errors()
     translation = recursive_decent_parser.get_translation()
     symbol_table = recursive_decent_parser.get_symbol_table()
+    abstract_syntax_tree = recursive_decent_parser.get_abstract_syntax_tree()
 
     if len(errors) > 0:
         print(errors, end='')
@@ -42,7 +43,7 @@ def main():
         file.write('Symbol Table\n')
         for key in symbol_table:
             file.write(key + ' : first appeared on line ' + str(symbol_table[key]) + '\n')
-
-    file.close()
+        abstract_syntax_tree.view_graph()
+        file.close()
 
 main()
