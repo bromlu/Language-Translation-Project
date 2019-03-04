@@ -44,8 +44,8 @@ pip install graphviz
 
 ### Run
 
-TODO
+I used IntelliJ with the Antlr plugin to run this. After installing the plugin [https://plugins.jetbrains.com/plugin/7358-antlr-v4-grammar-plugin](Antlr IntelliJ plugin) simply right click on the grammar and hit "generate Antlr Recognizer." Then mark the "out" folder as source, then go ahead and run the InfixTranslator file. The translated input file will appear in the console.
 
 ### Dependency
 
-You will need to download the antlr runtime in order to run this project. Here is a link to their website [https://www.antlr.org/](Antlr).
+You will need to download the Antlr runtime in order to run this project. Here is a link to their website [https://www.antlr.org/](Antlr).
