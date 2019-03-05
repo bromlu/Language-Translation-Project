@@ -27,6 +27,7 @@ def main():
 
     lexer = Lexer(inputFile)
     recursive_decent_parser = Recursive_Decent_Parser(lexer)
+    lexer.close_file()
 
     recursive_decent_parser.parse()
 

@@ -14,7 +14,9 @@ class Recursive_Decent_Parser:
 
     def parse_list(self):
         root = self.abstract_syntax_tree.get_root()
-        self.abstract_syntax_tree.add_child(self.parse_expression(), root)
+        child = self.parse_expression()
+        if child:
+            self.abstract_syntax_tree.add_child(child, root)
         if self.match(';'):
             self.translation += ';\n'
         else:
@@ -38,7 +40,7 @@ class Recursive_Decent_Parser:
         parent = self.parse_factors()
         if parent:
             self.abstract_syntax_tree.add_child(child, parent)
-        else:
+        elif child:
             parent = child
         return parent
 
@@ -52,9 +54,10 @@ class Recursive_Decent_Parser:
             parent = self.parse_terms()
             if parent:
                 self.abstract_syntax_tree.add_child(child, parent)
-            else:
+            elif child:
                 parent = child
-            self.abstract_syntax_tree.add_child(parent, node)
+            if parent:
+                self.abstract_syntax_tree.add_child(parent, node)
             return node
 
     def parse_factor(self):
@@ -92,9 +95,10 @@ class Recursive_Decent_Parser:
             parent = self.parse_factors()
             if parent:
                 self.abstract_syntax_tree.add_child(child, parent)
-            else:
+            elif child:
                 parent = child
-            self.abstract_syntax_tree.add_child(parent, node)
+            if parent:
+                self.abstract_syntax_tree.add_child(parent, node)
             return node
 
     def match(self, token):
